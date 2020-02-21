@@ -150,7 +150,32 @@
 				<td id="losses"></td>
 			</tr>
 		</table>
-
+	  	<script>
+		  function loadStatsPage(){
+			var table = document.getElementById("stats_table");
+			var home_value;
+			var away_value;
+			var row_counter;
+			var wins = 0;
+			var loses = 0;
+			  for(row_counter = 2; row_counter < table.rows.length; row_counter++){
+				home_value = table.rows[row_counter].cells[2].innerHTML;
+				away_value = table.rows[row_counter].cells[3].innerHTML;
+				home_value = parseInt(home_value);
+				away_value = parseInt(away_value);
+				if(home_value > away_value){
+					table.rows[row_counter].cells[4].innerHTML = 'CU Boulder';	
+					wins++;
+				}
+				else{
+					table.rows[row_counter].cells[4].innerHTML = table.rows[row_counter].cells[1].innerHTML;		
+					loses++;
+			  }
+			document.getElementById("wins").innerHTML = wins;
+			document.getElementById("losses").innerHTML = loses;
+		  }
+}
+		</script>
 	</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
