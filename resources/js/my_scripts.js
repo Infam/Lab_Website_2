@@ -65,6 +65,7 @@ var players = [{name:"John Doe", img: "../resources/img/player1.jpg", alt:"Image
 				a.title = "" + players[i].name;
 				a.href = "#";
 				a.onclick = function(){switchPlayers(i)};
+        a.classList.add("dropdown-item");
 				list.appendChild(a);
 			}
 			console.log(list)
